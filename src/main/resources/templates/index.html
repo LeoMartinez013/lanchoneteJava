@@ -29,7 +29,7 @@
     <div th:each="pedido : ${todosPedidos}">
         <div id="pedido${pedido.id}">
             <div id="nome${pedido.id}" th:text="${pedido.cliente}"></div>
-            <div id="entregar${pedido.id}" th:text="${pedido.entregar} ? 'entregar' : 'retirar'"></div>
+            <div id="entregar${pedido.id}" th:text="${pedido.entregar} ? 'Entregar' : 'Retirar'"></div>
             <div id="endereco${pedido.id}" th:text="${pedido.endereco}"></div>
             <form th:action="@{'apagar/pedido/' + ${pedido.id}}" method=post>
             	<input type="submit" value="X">
