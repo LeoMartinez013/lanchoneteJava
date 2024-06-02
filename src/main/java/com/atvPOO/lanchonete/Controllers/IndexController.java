@@ -3,6 +3,7 @@ package com.atvPOO.lanchonete.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,6 +57,12 @@ public class IndexController {
         return "pedidos";
     }
 
+    @GetMapping("/pedidos/prontos")
+    public String pedidosProntos(Model model) {
+        model.addAttribute("todosPedidos", pedidoService.getPedidosProntos());
+        return "pedidos";
+    }
+
     @PostMapping("/concluir/{id}")
     public String concluirPedido(@PathVariable int id) {
         Pedido pedido = pedidoService.getPedido(id);
@@ -74,7 +81,7 @@ public class IndexController {
         return "redirect:/";
     }
 
-    @PostMapping("/apagar/itemcardapio/{id}")
+    @DeleteMapping("/apagar/itemcardapio/{id}")
     public String deletarItemCardapio(@PathVariable int id) {
         ItemCardapio itemCardapio = itemCardapioService.getItemCardapio(id);
         for (ItemPedido itemPedido : itemCardapio.getItensPedido()) {
