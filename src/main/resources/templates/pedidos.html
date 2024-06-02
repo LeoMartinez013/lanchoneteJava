@@ -2,19 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Pedidos</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/themes/theme1.css}">
 </head>
-<body>
-    <div th:each="pedido : ${todosPedidos}">
-        <div id="pedido${pedido.id}">
+<body id="bodyPedido" class="bodyGeral">
+<nav>
+    <div>
+        <a th:href="@{/}">home</a>
+    </div> 
+    <div>
+        <a th:href="@{/cardapio}">cardápio</a>
+    </div>
+</nav>
+<main>
+    <h2>Pedidos</h2>
+    <div id="listagemPedidos" th:each="pedido : ${todosPedidos}">
+        <div id="pedido${pedido.id}" class="pedido">
             <div class="cliente" th:text="${pedido.cliente}"></div>
-            <div th:each="itemPedido : ${pedido.itensPedido}">
-                <div th:text="${itemPedido.itemCardapio.nome}">
-                </div>
-            </div>
-            <form th:action="@{'concluir/' + ${pedido.id}}" method=post>
+            <form class="buttonPronto" th:action="@{'concluir/' + ${pedido.id}}" method=post>
                 <input type="submit" value="Pronto">
             </form>
+            <div
+                class="itens">
+                <div
+                    th:each="itemPedido : ${pedido.itensPedido}" 
+                    class="itemNome"
+                    th:text="${itemPedido.itemCardapio.nome}">
+                </div>
+            </div>            
         </div>
     </div>
+</main>
 </body>
 </html>

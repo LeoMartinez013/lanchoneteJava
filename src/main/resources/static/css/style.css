@@ -1,0 +1,375 @@
+.bodyGeral {
+    margin: 0px;
+    padding: 0px;
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+
+        width: 100%;
+        height: 2.5rem;
+
+        margin-bottom: 1rem;
+        div>a {
+            cursor: pointer;
+            text-decoration: none;
+        }
+    }
+    h2 {
+        font-size: 1.1rem;
+        font-weight: 500;
+        text-align: center;
+
+        margin: 0;
+    }
+    button, input {
+        border: 0.1rem solid;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    main {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        flex-grow: 1;
+        
+        section {
+            padding: 0.5rem;
+            border: 0.1rem solid black;
+            border-radius: 10px;
+            
+        }
+    }
+}
+#index {
+    section {
+        padding: 0.5rem;
+        border: 0.1rem solid black;
+        border-radius: 10px;
+    }
+    #secCriarPedidos {
+        form {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 30% 15% 35% 20%;
+            grid-template-rows: 2rem auto;
+            grid-template-areas: 
+                "cliente entregar endereco registrar"
+                "cardapio cardapio cardapio cardapio";
+            row-gap: 0.5rem;
+            div {
+                align-items: center;
+                label {
+                    display: flex;
+                    justify-content: center;
+                    width: auto;
+                    height: 100%;
+                    align-items: center;
+                }
+                imput {
+                    height: 100%;
+                }
+            }
+            #cliente {
+                grid-area: cliente;
+                font-size: 0.93rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                label {
+                    margin-right: 5px;
+                }
+                input {
+                    width: 6rem;
+                    border-radius: 5px;
+                    border: 0.1rem solid;
+                }
+            }
+            #entregar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                grid-area: entregar;
+                label {
+                    margin-right: 5px;
+                }
+                select {
+                    border-radius: 5px;
+                    border: 0.1rem solid;
+                }
+            }
+            #endereco {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                grid-area: endereco;
+                label {
+                    margin-right: 5px;
+                }
+                input {
+                    border-radius: 5px;
+                    border: 0.1rem solid;
+                }
+            }
+            #cardapio {
+                display: flex;
+                flex-wrap: wrap;
+                grid-area: cardapio;
+                gap: 0.2rem;
+                .itemCardapio {
+                    font-size: 0.9rem;
+
+                    padding: 0 0.5rem;
+                    border-radius: 5px;
+                    border: 0.1rem solid;
+
+                    cursor: pointer;
+                    p {
+                        margin: 0;
+                    }
+                }
+            }
+            #registrar {
+                grid-area: registrar;
+                display: flex;
+                justify-content: center;
+                
+                input {
+                    font-size: 1rem;
+                    height: 1.5rem;
+                    width: 10rem;
+                    border-radius: 5px;
+                    border: 0.1rem solid;
+                    margin: 0 auto;
+                }
+            }
+            div {
+                display: flex;
+            }
+        }
+    }
+    #secPedidosProntos {
+        margin-top: 1rem;
+        
+        #titulo {
+            display: grid;
+            grid-template-columns: 25% 25% 40% 10%;
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            p {
+                display: flex;
+                justify-content: center;
+                margin: 0;
+            }
+        }
+        #listagemPedidos {
+            
+            .pedidosProntos{
+                font-weight: 500;
+                display: grid;
+                grid-template-columns: 25% 25% 40% 10%;
+
+                padding: 0.3rem 0;
+                border: 0.1rem solid black;
+                border-radius: 5px;
+                margin-bottom: 0.2rem;
+                div, form {
+                    display: flex;
+                    justify-content: center;
+                }
+                form {
+                    width: 100%;
+                    border-radius: 5px;
+                    margin: 0 auto;
+                    input {
+                        cursor: pointer;
+                        color: white;
+                        background-color: #ff4444;
+                        border: 0.1rem solid black;
+                        border-radius: 50%;
+                    }
+                    input:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+#bodyCardapio {
+    main {
+        #addItemCardapio {
+            form {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 60% 15% 20%;
+                grid-template-rows: 2rem auto;
+                grid-template-areas: 
+                    "nome preco addItem"
+                    "componentes componentes componentes";
+                row-gap: 0.5rem;
+                column-gap: 2.5%;
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                #nome {
+                    grid-area: nome;
+                    label {
+                        text-align: right;
+                        width: 15%;
+                        margin-right: 5%;
+                    }
+                    input {
+                        width: 80%;
+                    }
+                }
+                #componentes {
+                    grid-area: componentes;
+                    label {
+                        text-align: right;
+                        width: 10%;
+                        margin-right: 5%;
+                    }
+                    input {
+                        width: 85%;
+                    }
+                }
+                #preco {
+                    grid-area: preco;
+                    label {
+                        text-align: right;
+                        width: 50%;
+                        margin-right: 5%;
+                    }
+                    input {
+                        width: 45%;
+                    }
+                }
+                #addItem {
+                    grid-area: addItem;
+                    input {
+                        width: 100%;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+        #contItensCardapio {
+            margin-top: 1rem;
+            #itensCardapio {
+                .item {
+                    font-weight: 500;
+                    display: grid;
+                    grid-template-columns: 45% 40% 10%;
+                    grid-template-rows: 1.4rem auto;
+                    grid-template-areas: 
+                        "nome preco excluir"
+                        "componentes componentes componentes";
+                    row-gap: 0.1rem;
+                    column-gap: 2.5%;
+
+                    padding: 0.3rem 0;
+                    border: 0.1rem solid black;
+                    border-radius: 5px;
+                    margin: 0.2rem 0;
+                    div, form {
+                        display: flex;
+                        justify-content: center;
+                    }
+                    .nome {
+                        grid-area: nome;
+                    }
+                    .componentes {
+                        grid-area: componentes;
+                        font-size: 0.9rem;
+                    }
+                    .preco {
+                        grid-area: preco;
+                    }
+                    .excluir {
+                        grid-area: excluir;
+                    }
+                    form {
+                        width: 100%;
+                        border-radius: 5px;
+                        margin: 0 auto;
+                        input {
+                            cursor: pointer;
+                            color: white;
+                            background-color: #ff4444;
+                            border: 0.1rem solid black;
+                            border-radius: 50%;
+                        }
+                        input:hover {
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+#bodyPedido {
+    main {    
+        #listagemPedidos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+            gap: 0.2rem;
+            margin-top: 1rem;
+            .pedido {
+                font-weight: 500;
+                display: grid;
+                grid-template-columns: 80% 20%;
+                grid-template-rows: 1.4rem auto;
+                grid-template-areas: 
+                    "cliente buttonPronto"
+                    "itens itens";
+                row-gap: 0.1rem;
+
+                padding: 0.3rem 0.5rem;
+                border: 0.1rem solid black;
+                border-radius: 5px;
+                margin: 0.2rem 0;
+                div, form {
+                    display: flex;
+                    justify-content: center;
+                }
+                .cliente {
+                    grid-area: cliente;
+                    justify-content: left;
+                }
+                .itens {
+                    grid-area: itens;
+                    display: flex;
+                    gap: 0.4rem;
+                    font-size: 0.9rem;
+                    .itemNome {
+                        width: auto;
+                        padding: 0.1rem 0.5rem;
+                        border-radius: 5px;
+                        border: 0.1rem solid;
+                    }
+                }
+                .buttonPronto {
+                    grid-area: buttonPronto;
+                    input {
+                        width: 100%;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }   
+}

@@ -1,0 +1,49 @@
+:root {
+    --branco: #F2F2F2;
+    --cinza: #69788C;
+    --claro: #5F49F2;
+    --forte: #07338C;
+    --marinho: #070C26;
+}
+.bodyGeral {
+   background-color: var(--branco);
+    nav {
+        background-color: var(--forte);
+        color: var(--branco);
+        div>a {
+            color: var(--branco);
+        }
+    }
+    #addItem, #registrar {
+        input {
+            background-color: var(--branco);
+            color: var(--marinho);
+            border-color: var(--marinho);
+        }
+        input:hover {
+            background-color: var(--forte);
+            color: var(--branco);
+            border-color: var(--marinho);
+        }
+    }
+    .pedido {
+        color: var(--branco);
+        background-color: var(--forte);
+        .itens {
+            .itemNome {
+                background-color: var(--claro);
+                border-color: var(--branco);
+            }
+        }
+        input {
+            background-color: var(--branco);
+            color: var(--marinho);
+            border-color: var(--marinho);
+        }
+        input:hover {
+            background-color: var(--forte);
+            color: var(--branco);
+            border-color: var(--branco);
+        }
+    }    
+}

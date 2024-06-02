@@ -2,39 +2,69 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Home</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/themes/theme1.css}">
+    <script th:src="@{js/main.js}"></script>
 </head>
-<body>
-    <form action="#" th:action="@{/pedido}" th:object="${pedido}" method="post">
-        <div>
-            <label>Cliente: </label>
-            <input type="text" th:field="*{cliente}">
-        </div>
-        <div>
-            <label>Para entregar?</label>
-            <select id="" th:field="*{entregar}">
-                <option value="true">sim</option>
-                <option value="false">não</option>
-            </select>
-        </div>
-        <div>
-            <label>Endereço</label>
-            <input type="text" th:field="*{endereco}">
-        </div>
-        <div th:each="item : ${todosItens}">
-            <input type="checkbox" th:id="${'item' + item.id}" th:value="${item.id}" th:field="*{itensCardapioSelecionados}">
-            <label th:for="${'item' + item.id}" th:text="${item.nome}"></label>
-        </div>
-        <input type="submit" value="Registrar pedido">
-    </form>
-    <div th:each="pedido : ${todosPedidos}">
-        <div id="pedido${pedido.id}">
-            <div id="nome${pedido.id}" th:text="${pedido.cliente}"></div>
-            <div id="entregar${pedido.id}" th:text="${pedido.entregar} ? 'entregar' : 'retirar'"></div>
-            <div id="endereco${pedido.id}" th:text="${pedido.endereco}"></div>
-            <form th:action="@{'apagar/pedido/' + ${pedido.id}}" method=post>
-            	<input type="submit" value="X">
-            </form>
-        </div>
+<body id="index" class="bodyGeral">
+<nav>
+    <div>
+        <a th:href="@{/cardapio}">cardápio</a>
     </div>
+    <div>
+        <a th:href="@{/pedidos}">pedidos</a>
+    </div>
+</nav>
+<main>
+    <section id="secCriarPedidos">
+        <h2>Registrar pedidos</h2>
+        <form action="#" th:action="@{/pedido}" th:object="${pedido}" method="post">
+            <div id="cliente">
+                <label>cliente: </label>
+                <input type="text" th:field="*{cliente}">
+            </div>
+            <div id="entregar">
+                <label>entregar?</label>
+                <select id="" th:field="*{entregar}">
+                    <option value="true">sim</option>
+                    <option value="false">não</option>
+                </select>
+            </div>
+            <div id="endereco">
+                <label>endereço</label>
+                <input type="text" th:field="*{endereco}">
+            </div>
+            <div id="cardapio">
+                <div th:each="item : ${todosItens}" class="itemCardapio" th:data-id="${item.id}">
+                    <input type="checkbox" th:id="'checkSelectItem' + ${item.id}" th:value="${item.id}" th:field="*{itensCardapioSelecionados}">
+                    <p th:for="'item' + ${item.id}" th:text="${item.nome}"></p>
+                </div>
+            </div>
+
+            <div id="registrar">
+                <input type="submit" value="registrar pedido">
+            </div>
+        </form>
+    </section>  
+    <section id="secPedidosProntos" >
+        <h2>Pedidos prontos</h2>
+        <div id="titulo">
+            <p>Cliente</p>
+            <p>Tipo</p>
+            <p>Endereço</p>
+            <p></p>
+        </div>
+        <div id="listagemPedidos" th:each="pedido : ${todosPedidos}">
+            <div id="pedido${pedido.id}" class="pedidosProntos">
+                <div id="nome${pedido.id}" th:text="${pedido.cliente}"></div>
+                <div id="entregar${pedido.id}" th:text="${pedido.entregar} ? 'entregar' : 'retirar'"></div>
+                <div id="endereco${pedido.id}" th:text="${pedido.endereco}"></div>
+                <form th:action="@{'apagar/pedido/' + ${pedido.id}}" method=post>
+                    <input type="submit" value="X">
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
 </body>
 </html>
