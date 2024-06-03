@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" th:href="@{css/style.css}">
     <link rel="stylesheet" th:href="@{css/themes/theme1.css}">
@@ -9,10 +10,10 @@
 <body id="index" class="bodyGeral">
 <nav>
     <div>
-        <a th:href="@{/cardapio}">cardápio</a>
+        <a th:href="@{/cardapio}">Cardápio</a>
     </div>
     <div>
-        <a th:href="@{/pedidos}">pedidos</a>
+        <a th:href="@{/pedidos}">Pedidos</a>
     </div>
 </nav>
 <main>
@@ -57,11 +58,13 @@
         <div id="listagemPedidos" th:each="pedido : ${todosPedidos}">
             <div id="pedido${pedido.id}" class="pedidosProntos">
                 <div id="nome${pedido.id}" th:text="${pedido.cliente}"></div>
-                <div id="entregar${pedido.id}" th:text="${pedido.entregar} ? 'entregar' : 'retirar'"></div>
+                <div id="entregar${pedido.id}" th:text="${pedido.entregar} ? 'Entregar' : 'Retirar'"></div>
                 <div id="endereco${pedido.id}" th:text="${pedido.endereco}"></div>
+                <!-- Soma do Pedido -->
                 <form th:action="@{'apagar/pedido/' + ${pedido.id}}" method=post>
                     <input type="submit" value="X">
                 </form>
+                <div >Total R$:<div th:text="${pedido.getTotal()}"></div> </div>
             </div>
         </div>
     </section>

@@ -99,5 +99,18 @@ public class Pedido {
     public void setItensCardapioSelecionados(List<Integer> itensCardapioSelecionados) {
         this.itensCardapioSelecionados = itensCardapioSelecionados;
     }
+
+    /**
+     * Soma os preços de todos os itens do pedido
+     */
+    public double getTotal() {
+        double total = 0;
+        for (ItemPedido itemPedido : itensPedido) {
+            total += itemPedido.getItemCardapio().getPreco() 
+                // * itemPedido.getQuantidade()
+                ;
+        }
+        return total;
+    }
 }
 

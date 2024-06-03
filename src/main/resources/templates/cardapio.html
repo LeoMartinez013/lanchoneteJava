@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Cardápio</title>
     <link rel="stylesheet" th:href="@{css/style.css}">
     <link rel="stylesheet" th:href="@{css/themes/theme1.css}">
@@ -8,10 +9,10 @@
 <body id="bodyCardapio" class="bodyGeral">
 <nav>
     <div>
-        <a th:href="@{/}">home</a>
+        <a th:href="@{/}">Home</a>
     </div>
     <div>
-        <a th:href="@{/pedidos}">pedidos</a>
+        <a th:href="@{/pedidos}">Pedidos</a>
     </div>
 </nav>
 <main>
@@ -49,10 +50,11 @@
                     id="componentes${item.id}" 
                     class="componentes" 
                     th:text="${item.componentes}"></div>
-                <div 
+                <div>R$:
+                    <div
                     id="preco${item.id}" 
                     class="preco"
-                    th:text="${item.preco}"></div>
+                    th:text="${item.preco}"></div></div>
                 <form class="excluir" th:action="@{'apagar/itemcardapio/' + ${item.id}}" method=post>
                     <input type="submit" value="X">
                 </form>

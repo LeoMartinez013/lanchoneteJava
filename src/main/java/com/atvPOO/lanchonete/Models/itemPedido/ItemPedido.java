@@ -31,6 +31,8 @@ public class ItemPedido {
     @JoinColumn(name = "cd_ItemCardapio", nullable = false)
     private ItemCardapio itemCardapio;
 
+    // private int qt_Quantidade; + get e set
+
     public ItemPedido() {
     }
 
